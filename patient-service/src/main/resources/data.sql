@@ -128,3 +128,15 @@ SELECT '123e4567-e89b-12d3-a456-426614174009',
 WHERE NOT EXISTS(SELECT 1
                  FROM patient
                  WHERE id='123e4567-e89b-12d3-a456-426614174009');
+
+INSERT INTO patient (id, name, email, address, date_of_birth, registered_date)
+SELECT '123e4567-e89b-12d3-a456-426614174010',
+       'Pablo Batalla',
+       'pablo16@gmail.com',
+       'Argentina',
+       '1985-09-09',
+       '2025-03-13'
+
+WHERE NOT EXISTS(SELECT 1
+                 FROM patient
+                 WHERE id='123e4567-e89b-12d3-a456-426614174010');
