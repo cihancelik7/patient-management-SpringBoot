@@ -4,7 +4,7 @@ Content-Type: application/json
 
 {
   "name": "Pablo Martin Batalla",
-  "email": "batalla16@gmail.com",
+  "email": "pablo16@gmail.com",
   "address": "Argentina",
   "dateOfBirth": "1984-04-03"
 }

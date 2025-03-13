@@ -4,7 +4,6 @@ import com.cihancelik.patientservice.dto.PatientRequestDTO;
 import com.cihancelik.patientservice.dto.PatientResponseDTO;
 import com.cihancelik.patientservice.dto.validators.CreatePatientValidationGroup;
 import com.cihancelik.patientservice.service.PatientService;
-import jakarta.validation.Valid;
 import jakarta.validation.groups.Default;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
