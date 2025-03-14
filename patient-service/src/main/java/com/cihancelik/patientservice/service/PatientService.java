@@ -9,6 +9,7 @@ import com.cihancelik.patientservice.model.Patient;
 import com.cihancelik.patientservice.repository.PatientRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -59,6 +60,11 @@ public class PatientService {
         return PatientMapper.toDTO(updatePatient);
 
     }
+
+    public void deletePatient(UUID id){
+        patientRepository.deleteById(id);
+    }
+
 
 
 }
