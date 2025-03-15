@@ -4,6 +4,7 @@ import com.cihancelik.patientservice.dto.PatientRequestDTO;
 import com.cihancelik.patientservice.dto.PatientResponseDTO;
 import com.cihancelik.patientservice.exception.EmailAlreadyExistsException;
 import com.cihancelik.patientservice.exception.PatientNotFoundException;
+import com.cihancelik.patientservice.grpc.BillingServiceGrpcClient;
 import com.cihancelik.patientservice.mapper.PatientMapper;
 import com.cihancelik.patientservice.model.Patient;
 import com.cihancelik.patientservice.repository.PatientRepository;
@@ -18,9 +19,11 @@ import java.util.UUID;
 @Service
 public class PatientService {
     private PatientRepository patientRepository;
+    private final BillingServiceGrpcClient billingServiceGrpcClient;
 
-    public PatientService(PatientRepository patientRepository) {
+    public PatientService(PatientRepository patientRepository, BillingServiceGrpcClient billingServiceGrpcClient) {
         this.patientRepository = patientRepository;
+        this.billingServiceGrpcClient = billingServiceGrpcClient;
     }
 
     public List<PatientResponseDTO> getPatients() {
@@ -36,6 +39,8 @@ public class PatientService {
         }
         Patient newPatient = patientRepository.save(
                 PatientMapper.toModel(patientRequestDTO));
+
+        billingServiceGrpcClient.createBillingAccount(newPatient.getId().toString(),newPatient.getName(),newPatient.getEmail());
 
 
         return PatientMapper.toDTO(newPatient);

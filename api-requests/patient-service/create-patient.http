@@ -3,9 +3,9 @@ POST http://localhost:4000/patients
 Content-Type: application/json
 
 {
-  "name": "Pablo Batalla2",
-  "email": "pablo16b@gmail.com",
-  "address": "Argentina1",
+  "name": "Pablo Batalla with billing account",
+  "email": "pablo16_billing_account@gmail.com",
+  "address": "Argentina",
   "dateOfBirth": "1985-09-09",
   "registeredDate": "2025-03-13"
 }
